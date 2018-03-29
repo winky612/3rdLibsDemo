@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by .ignore support plugin (hsz.mobi)
 ### Android template
 # Built application files
@@ -57,3 +58,14 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+>>>>>>> 65a3a19c5430d86e19737ef370057bb74bfa0dd7
