@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'zkhz_android.keystore'
+            keyPassword 'zkhzandroid'
+            storeFile file('D:/zkhz_android.keystore')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.zkhz.a3rdlibsdemo"
@@ -12,12 +20,26 @@ android {
 
         renderscriptTargetApi 24
         renderscriptSupportModeEnabled true
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "8g"
     }
 }
 
@@ -28,13 +50,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
-    compile 'com.umeng.sdk:common:latest.integration'
     compile 'com.umeng.sdk:analytics:latest.integration'
     implementation files('libs/umeng-common-1.4.4.jar')
-
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.wonderkiln:blurkit:1.0.0'
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng_shareboard_widget.jar')
+    implementation files('libs/umeng_social_net.jar')
+    implementation files('libs/umeng_social_api.jar')
+    implementation files('libs/umeng_social_shareview.jar')
+    implementation files('libs/umeng_social_tool.jar')
 
+//    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile 'com.android.support:multidex:1.0.1'
 }
