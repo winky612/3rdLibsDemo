@@ -97,7 +97,7 @@
         <!--channel是指您发布的市场和推广渠道标识，android平台上，如代码中没有填写则记为“unknown”，IOS平台中，如代码中没有填写则记为“Appstore”-->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="unknown" />
+            android:value="Umeng" />
     </application>
 
 </manifest>
