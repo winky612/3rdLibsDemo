@@ -14,14 +14,15 @@
         android:id="@+id/qq"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/umeng_socialize_qq"
-        app:layout_constraintLeft_toRightOf="@id/wechat" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/umeng_socialize_qq" />
 
     <ImageView
         android:id="@+id/sina"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/umeng_socialize_sina"
         app:layout_constraintLeft_toRightOf="@+id/qq" />
 
@@ -38,13 +39,15 @@
         android:layout_height="50dp"
         android:layout_marginRight="15dp"
         android:src="@drawable/umeng_socialize_qq"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/qq"
-        app:layout_constraintLeft_toRightOf="@id/wechat2" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
         android:id="@+id/sina2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/umeng_socialize_sina"
         app:layout_constraintLeft_toRightOf="@+id/qq2"
         app:layout_constraintTop_toBottomOf="@id/sina"/>

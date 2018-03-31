@@ -17,6 +17,7 @@ import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.zkhz.a3rdlibsdemo.R;
 
 /**
@@ -26,8 +27,9 @@ import com.zkhz.a3rdlibsdemo.R;
 public class LoadingActivity extends AppCompatActivity {
 
     private ImageView wechat, qq, sina, wechat2, qq2, sina2;
-    private UMShareAPI mShareAPI = UMShareAPI.get(this);
-    private SHARE_MEDIA platform = SHARE_MEDIA.WEIXIN;
+    private UMImage image;
+    private UMWeb web;
+    private UMShareAPI shareAPI;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,12 +42,28 @@ public class LoadingActivity extends AppCompatActivity {
         wechat2 = findViewById(R.id.wechat2);
         qq2 = findViewById(R.id.qq2);
         sina2 = findViewById(R.id.sina2);
+        shareAPI=UMShareAPI.get(LoadingActivity.this);
+
+        initMedia();
+
+        //其中123是requestcode，可以根据这个code判断，用户是否同意了授权。如果没有同意，可以根据回调进行相应处理：
+        if (Build.VERSION.SDK_INT >= 23) {
+            String[] mPermissionList = new String[]
+                    {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.CALL_PHONE, Manifest.permission.READ_LOGS, Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SET_DEBUG_APP,
+                            Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.GET_ACCOUNTS,
+                            Manifest.permission.WRITE_APN_SETTINGS};
+            ActivityCompat.requestPermissions(this, mPermissionList, 123);
+        }
 
 
         //第三方登录
         wechat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
             }
         });
@@ -71,20 +89,27 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+                shareAPI.isInstall(LoadingActivity.this, SHARE_MEDIA.WEIXIN);
+
                 new ShareAction(LoadingActivity.this)
-                        .setPlatform(SHARE_MEDIA.QQ)//传入平台
-                        .withText("hello")//分享内容
+                        .setPlatform(SHARE_MEDIA.WEIXIN)//传入平台
+                        .withMedia(image)
                         .setCallback(umShareListener)//回调监听器
                         .share();
 
             }
         });
 
+
         qq2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UMImage image = new UMImage(LoadingActivity.this, R.drawable.red);//资源文件
-                new ShareAction(LoadingActivity.this).withText("hello").withMedia(image).share();
+                new ShareAction(LoadingActivity.this)
+                        .withMedia(web)
+                        .setPlatform(SHARE_MEDIA.QQ)
+                        .setCallback(umShareListener)
+                        .share();
 
             }
         });
@@ -97,17 +122,20 @@ public class LoadingActivity extends AppCompatActivity {
         });
 
 
-        //其中123是requestcode，可以根据这个code判断，用户是否同意了授权。如果没有同意，可以根据回调进行相应处理：
-        if (Build.VERSION.SDK_INT >= 23) {
-            String[] mPermissionList = new String[]
-                    {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.CALL_PHONE, Manifest.permission.READ_LOGS, Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SET_DEBUG_APP,
-                            Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.GET_ACCOUNTS,
-                            Manifest.permission.WRITE_APN_SETTINGS};
-            ActivityCompat.requestPermissions(this, mPermissionList, 123);
-        }
 
+    }
+
+    private void initMedia() {
+
+        //图片 资源文件
+        image = new UMImage(LoadingActivity.this, R.drawable.red);
+
+        //链接
+        String url="https://baike.baidu.com/item/%E9%BB%84%E7%8E%AB%E7%91%B0/55429?fr=aladdin";
+        web = new UMWeb(url);
+        web.setTitle("This is web title");//标题
+        web.setThumb(new UMImage(LoadingActivity.this,R.drawable.umeng_socialize_sina));  //缩略图
+        web.setDescription("my description");//描述
     }
 
 
@@ -133,6 +161,7 @@ public class LoadingActivity extends AppCompatActivity {
          */
         @Override
         public void onStart(SHARE_MEDIA platform) {
+            Toast.makeText(LoadingActivity.this, "startttt", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -166,4 +195,10 @@ public class LoadingActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        UMShareAPI.get(this).release();
+    }
 }
