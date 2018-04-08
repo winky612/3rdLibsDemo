@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
@@ -44,7 +43,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     private boolean isAuth;
 
-    private BaseResp resp = null;
+//    private BaseResp resp = null;
 
 
     @Override
@@ -85,7 +84,7 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                load(LoadingActivity.this,SHARE_MEDIA.WEIXIN,authListener);
+//                load(LoadingActivity.this,SHARE_MEDIA.WEIXIN,authListener);
 
                 getUserInfo(LoadingActivity.this,SHARE_MEDIA.WEIXIN,authListener);
 
@@ -97,7 +96,7 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                load(LoadingActivity.this,SHARE_MEDIA.QQ,authListener);
+//                load(LoadingActivity.this,SHARE_MEDIA.QQ,authListener);
 
                 getUserInfo(LoadingActivity.this,SHARE_MEDIA.QQ,authListener);
 
@@ -165,13 +164,21 @@ public class LoadingActivity extends AppCompatActivity {
 
     //第三方授权
     private void load(Context context,SHARE_MEDIA platform,UMAuthListener listener) {
-
         if (isAuth) {
             UMShareAPI.get(context).deleteOauth(LoadingActivity.this, platform, listener);
         } else {
             UMShareAPI.get(context).doOauthVerify(LoadingActivity.this, platform, listener);
         }
 
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (null != dialog&&dialog.isShowing()){
+            dialog.dismiss();
+        }
     }
 
     private void initMedia() {
