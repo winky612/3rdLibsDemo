@@ -34,7 +34,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".blur.BlurDemoActivity"/>
-        <activity android:name=".gaode.LocateActivity">
+        <activity android:name=".gaode.LocateActivity"></activity>
+        <activity android:name=".gaode.NaviActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
