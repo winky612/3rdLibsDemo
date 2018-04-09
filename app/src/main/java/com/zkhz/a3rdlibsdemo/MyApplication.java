@@ -11,12 +11,21 @@ import com.wonderkiln.blurkit.BlurKit;
 
 public class MyApplication extends Application {
 
-    private Context context;
+    public static Context context;
 
     public MyApplication() {
+
     }
 
     public MyApplication(Context context) {
+        this.context = context;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
         this.context = context;
     }
 
