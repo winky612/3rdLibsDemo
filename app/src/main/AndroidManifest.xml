@@ -75,6 +75,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+                <!--替换成您的APP ID-->
                 <data android:scheme="tencent1106812396" />
             </intent-filter>
 

@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
@@ -34,7 +36,7 @@ import java.util.Map;
 
 public class LoadingActivity extends AppCompatActivity {
 
-    private ImageView wechat, qq, sina, wechat2, qq2, sina2;
+    private ImageView wechat, qq, sina, wechat2, qq2, sina2,icon;
     private TextView txt;
     private UMImage image;
     private UMWeb web;
@@ -43,7 +45,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     private boolean isAuth;
 
-//    private BaseResp resp = null;
+    private BaseResp resp = null;
 
 
     @Override
@@ -58,6 +60,7 @@ public class LoadingActivity extends AppCompatActivity {
         qq2 = findViewById(R.id.qq2);
         sina2 = findViewById(R.id.sina2);
         txt=findViewById(R.id.txt);
+        icon=findViewById(R.id.iv_icon);
 
         shareAPI=UMShareAPI.get(LoadingActivity.this);
 
@@ -98,6 +101,7 @@ public class LoadingActivity extends AppCompatActivity {
 
 //                load(LoadingActivity.this,SHARE_MEDIA.QQ,authListener);
 
+                //第三方登录和获取用户信息 1.首先不是先后的调用顺序 而是异步的 是跳转到授权页 然后回调 2.其次 第三方登录和获取用户信息不能共存 ∵获取用户信息这一步已经包含了授权登录
                 getUserInfo(LoadingActivity.this,SHARE_MEDIA.QQ,authListener);
 
 
@@ -162,23 +166,15 @@ public class LoadingActivity extends AppCompatActivity {
 
     }
 
-    //第三方授权
+    //授权(第三方登录)
     private void load(Context context,SHARE_MEDIA platform,UMAuthListener listener) {
+
         if (isAuth) {
             UMShareAPI.get(context).deleteOauth(LoadingActivity.this, platform, listener);
         } else {
             UMShareAPI.get(context).doOauthVerify(LoadingActivity.this, platform, listener);
         }
 
-    }
-
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (null != dialog&&dialog.isShowing()){
-            dialog.dismiss();
-        }
     }
 
     private void initMedia() {
@@ -195,6 +191,13 @@ public class LoadingActivity extends AppCompatActivity {
     }
 
 
+
+    /**
+     * 第三方登录 是跳转到授权页后 携带的信息 由友盟API帮你处理封装好了 你只需在回调里调Umeng的方法即可 另外 回调的结果在UMAuthListener中
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -268,6 +271,9 @@ public class LoadingActivity extends AppCompatActivity {
                 temp = temp + key + " : " + data.get(key) + "\n";
             }
             txt.setText(temp);
+
+            String iconUrl=data.get("iconurl");
+            Glide.with(LoadingActivity.this).load(iconUrl).into(icon);
 
             Toast.makeText(LoadingActivity.this, "第三方授权 成功了", Toast.LENGTH_LONG).show();
         }

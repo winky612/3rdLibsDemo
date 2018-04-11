@@ -11,6 +11,7 @@ public class Constants {
 
     private static String WX_APP_KEY="OaOUZnVnSVU3FJeP";
     private static String WX_APP_ID="1106812396";
+    private static String WX_APP_SECRET="507680dd82ab352da3381e26df0719bb";
 
 
 
