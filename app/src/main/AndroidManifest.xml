@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zkhz.a3rdlibsdemo">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -11,12 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".blur.BlurDemoActivity">
+        <activity android:name=".blur.BlurDemoActivity"></activity>
+        <activity android:name=".recyclerview.RVActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".recyclerview.boy.BoyRVActivity">
+
+        </activity>
+        <activity android:name=".recyclerview.girl.GirlRVActivity">
+
+        </activity>
+        <activity android:name=".recyclerview.animal.AnimalRVActivity">
+
         </activity>
     </application>
 
