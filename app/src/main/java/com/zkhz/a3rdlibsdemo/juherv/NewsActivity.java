@@ -76,7 +76,8 @@ public class NewsActivity extends AppCompatActivity {
             public void onResponse(Call<Data> call, Response<Data> response) {
                 Data data=response.body();
                 List<Data.ResultBean.DataBean> newsList=data.getResult().getData();
-                
+                newsRVAdapter.setList(newsList);
+
             }
 
             @Override

@@ -19,29 +19,37 @@ import java.util.List;
 
 public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.MyHolder> {
 
-    private List<Data.ResultBean.DataBean> data;
+    private List<Data.ResultBean.DataBean> list;
     private OnItemClickListener onItemClickListener;
 
     public NewsRVAdapter() {
     }
 
-    public NewsRVAdapter(List<Data.ResultBean.DataBean> data) {
-        this.data = data;
+    public NewsRVAdapter(List<Data.ResultBean.DataBean> list) {
+        this.list = list;
+    }
+
+    public List<Data.ResultBean.DataBean> getList() {
+        return list;
+    }
+
+    public void setList(List<Data.ResultBean.DataBean> list) {
+        this.list = list;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, parent);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, parent,false);
         MyHolder myHolder = new MyHolder(view);
         return myHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, int position) {
-        holder.title.setText(data.get(position).getTitle());
-        Glide.with(holder.itemView.getContext()).load(data.get(position).getUrl()).into(holder.pic);
+        holder.title.setText(list.get(position).getTitle());
+        Glide.with(holder.itemView.getContext()).load(list.get(position).getUrl()).into(holder.pic);
 
         if (onItemClickListener!=null){
             holder.pic.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +65,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.MyHolder> 
 
     @Override
     public int getItemCount() {
-        return data == null ? 0 : data.size();
+        return list == null ? 0 : list.size();
     }
 
 
