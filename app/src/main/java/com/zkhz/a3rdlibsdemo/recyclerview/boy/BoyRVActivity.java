@@ -5,8 +5,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.zkhz.a3rdlibsdemo.R;
+import com.zkhz.a3rdlibsdemo.recyclerview.base.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,12 @@ public class BoyRVActivity extends AppCompatActivity {
         rv.setLayoutManager(linearLayoutManager);
         BoyRVAdapter adapter = new BoyRVAdapter();
         adapter.setList(list);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void OnItemClick(RecyclerView.ViewHolder holder) {
+                Toast.makeText(BoyRVActivity.this, "click"+list.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
         rv.setAdapter(adapter);
 
     }

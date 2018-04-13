@@ -8,8 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.zkhz.a3rdlibsdemo.R;
+import com.zkhz.a3rdlibsdemo.recyclerview.base.BaseRVAdapter;
 import com.zkhz.a3rdlibsdemo.recyclerview.fruit.Fruit;
-import com.zkhz.a3rdlibsdemo.recyclerview.fruit.FruitRVAdapter;
+import com.zkhz.a3rdlibsdemo.recyclerview.fruit.FruitRVAdapter2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class RVActivity extends AppCompatActivity {
     @BindView(R.id.rv)
     RecyclerView rv;
     private List<Fruit> fruits = new ArrayList<>();
-    private FruitRVAdapter adapter;
+    private FruitRVAdapter2 adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,16 +39,35 @@ public class RVActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(RVActivity.this,LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(linearLayoutManager);
-        adapter=new FruitRVAdapter(fruits);
+        adapter=new FruitRVAdapter2();
+        adapter.setList(fruits);
         rv.setAdapter(adapter);
 
-        adapter.setOnPicClickListener(new FruitRVAdapter.OnPicClickListener() {
-            @Override
-            public void OnPicClick(RecyclerView.ViewHolder holder) {
-                Toast.makeText(RVActivity.this, "click"+fruits.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
 
-            }
-        });
+       adapter.setOnFruitClickListener(new FruitRVAdapter2.OnFruitClickListener() {
+           @Override
+           public void onPicClick(RecyclerView.ViewHolder holder) {
+
+               Toast.makeText(RVActivity.this, " PIC"+fruits.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+           }
+
+           @Override
+           public void onNameClick(BaseRVAdapter.BaseViewHolder holder) {
+               Toast.makeText(RVActivity.this, " NAME"+fruits.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+
+
+           }
+
+           @Override
+           public void OnItemClick(RecyclerView.ViewHolder holder) {
+
+               Toast.makeText(RVActivity.this, " item"+fruits.get(holder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
+
+
+           }
+       });
+
+
 
 
 

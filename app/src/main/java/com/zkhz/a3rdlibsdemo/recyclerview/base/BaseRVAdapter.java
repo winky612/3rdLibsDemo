@@ -2,6 +2,7 @@ package com.zkhz.a3rdlibsdemo.recyclerview.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -13,6 +14,11 @@ import java.util.List;
 public abstract class BaseRVAdapter<T> extends RecyclerView.Adapter<BaseRVAdapter.BaseViewHolder<T>> {
 
     private List<T> list;
+    protected OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public BaseRVAdapter(List<T> list) {
         this.list = list;
@@ -43,8 +49,18 @@ public abstract class BaseRVAdapter<T> extends RecyclerView.Adapter<BaseRVAdapte
 
     public static abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
 
-        public BaseViewHolder(ViewGroup parent, int layoutId) {
+        public BaseViewHolder(ViewGroup parent, int layoutId, final OnItemClickListener listener) {
             super(LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false));
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (null!=listener){
+                        listener.OnItemClick(BaseViewHolder.this);
+                    }
+
+                }
+            });
         }
 
 
