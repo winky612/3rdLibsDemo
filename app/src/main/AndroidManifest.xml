@@ -11,13 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".blur.BlurDemoActivity">
+        <activity android:name=".blur.BlurDemoActivity"></activity>
+        <activity android:name=".eventbus.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".eventbus.SecondActivity"></activity>
     </application>
 
 </manifest>
