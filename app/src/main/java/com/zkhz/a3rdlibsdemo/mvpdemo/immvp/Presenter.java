@@ -1,4 +1,4 @@
-package com.zkhz.a3rdlibsdemo.mvpdemo;
+package com.zkhz.a3rdlibsdemo.mvpdemo.immvp;
 
 import android.text.TextUtils;
 
