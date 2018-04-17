@@ -39,6 +39,14 @@ public class GirlRVAdapter extends RecyclerView.Adapter<GirlRVAdapter.MyGirlHold
         this.list = list;
     }
 
+    /*
+    更新recyclerView视图
+     */
+    public void  notifyDataSetChanged(List<Girl> list){
+        setList(list);
+        notifyDataSetChanged();
+    };
+
     @Override
     public MyGirlHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

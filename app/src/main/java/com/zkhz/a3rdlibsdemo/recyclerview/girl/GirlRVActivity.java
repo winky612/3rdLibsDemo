@@ -38,6 +38,7 @@ public class GirlRVActivity extends AppCompatActivity {
         rv.setLayoutManager(layoutManager);
         adapter=new GirlRVAdapter();
         adapter.setList(list);
+//        adapter.notifyDataSetChanged();
         rv.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new GirlRVAdapter.OnItemClickListener() {
