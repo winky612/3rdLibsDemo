@@ -35,6 +35,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.MyHolder> 
 
     public void setList(List<Data.ResultBean.DataBean> list) {
         this.list = list;
+        notifyDataSetChanged();//更新界面显示的数据
     }
 
     @NonNull
