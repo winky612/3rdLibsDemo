@@ -3,13 +3,11 @@ package com.zkhz.a3rdlibsdemo.eventbus;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import com.zkhz.a3rdlibsdemo.R;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +18,9 @@ import butterknife.ButterKnife;
 
 public class SecondActivity extends AppCompatActivity {
     @BindView(R.id.tv_txt)
-    TextView tvTxt;
+    EditText tvTxt;
+
+    private String input;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,19 +28,21 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
 
-        EventBus.getDefault().register(this);
+        input=tvTxt.getText().toString();
 
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageEvent event){
-        tvTxt.setText(event.getMsg());
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        EventBus.getDefault().post(new MessageEvent(input));
+
+        finish();
     }
 }
