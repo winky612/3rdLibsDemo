@@ -6,27 +6,31 @@ package com.zkhz.a3rdlibsdemo.mvpdemo.pracmvp.bean;
 
 public class UserBean {
 
-    private String firstName;
-    private String lastName;
+    /**
+     * (1)首先我们需要一个UserBean，用来保存用户信息
+     */
 
-    public UserBean(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    private String user;
+    private String pwd;
+
+    public UserBean(String user, String pwd) {
+        this.user = user;
+        this.pwd = pwd;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUser() {
+        return user;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }
