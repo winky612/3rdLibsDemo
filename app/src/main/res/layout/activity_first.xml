@@ -16,10 +16,18 @@
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click"
+        android:text="to2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_input" />
+    <Button
+        android:id="@+id/btn_to3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_submit" />
 
     <TextView
         android:id="@+id/tv_fir"
@@ -29,6 +37,6 @@
         android:text="dfgchvj"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_submit" />
+        app:layout_constraintTop_toBottomOf="@id/btn_to3" />
 
 </android.support.constraint.ConstraintLayout>

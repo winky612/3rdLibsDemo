@@ -28,7 +28,6 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
 
-        input=tvTxt.getText().toString();
 
     }
 
@@ -40,9 +39,12 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        EventBus.getDefault().post(new MessageEvent(input));
 
-        finish();
+        input=tvTxt.getText().toString();
+
+        EventBus.getDefault().post(new MessageEvent(input));
+        super.onBackPressed();
+
+//        finish();
     }
 }
