@@ -15,10 +15,33 @@ import retrofit2.Response;
  */
 
 public class RetrofitActivity extends AppCompatActivity {
+
+    private Call<String> call;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        call=Client.getAPI().getDataCall();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+
+
+
+
+
 
         Clientt.getAPI().getDataCall().enqueue(new Callback() {
             @Override
