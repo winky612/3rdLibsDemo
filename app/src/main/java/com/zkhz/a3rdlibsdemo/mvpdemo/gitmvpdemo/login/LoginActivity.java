@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.zkhz.a3rdlibsdemo.MainActivity;
 import com.zkhz.a3rdlibsdemo.R;
+import com.zkhz.a3rdlibsdemo.mvpdemo.gitmvpdemo.main.DemoActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, DemoActivity.class));
 
     }
 }
