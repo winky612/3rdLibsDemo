@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Administrator on 2018/4/26 0026.
  */
 
-public class RxjavaRetrofitActivity extends AppCompatActivity {
+public class RxjavaRetrofitActivity2 extends AppCompatActivity {
 
 //    private Call<NewsData> call;
 
@@ -28,19 +28,9 @@ public class RxjavaRetrofitActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        HttpLoggingInterceptor interceptor=new HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient client=new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("")
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-
-        Api api=retrofit.create(Api.class);
+        Api api=getRetrofit().create(Api.class);
 //        call=api.getNewsData("","")
         api.getNewsData("top","93ba680b61c343b8a0777a045c0faab0")
                 .subscribeOn(Schedulers.io())                //在IO线程进行网络请求
@@ -59,20 +49,32 @@ public class RxjavaRetrofitActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
 
-                        Toast.makeText(RxjavaRetrofitActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RxjavaRetrofitActivity2.this, "登录失败", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onComplete() {
 
-                        Toast.makeText(RxjavaRetrofitActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RxjavaRetrofitActivity2.this, "登录成功", Toast.LENGTH_SHORT).show();
 
                     }
                 });
 
+    }
 
+    public static Retrofit getRetrofit(){
+        HttpLoggingInterceptor interceptor=new HttpLoggingInterceptor()
+                .setLevel(HttpLoggingInterceptor.Level.BODY);
 
+        OkHttpClient client=new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(Constants.BASE_NEWS)////////////////////
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        return retrofit;
     }
 }
