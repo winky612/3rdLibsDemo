@@ -16,8 +16,10 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -48,8 +50,41 @@ public class RxjavaActivity4 extends AppCompatActivity {
 
                 break;
             case R.id.btn_day02:
+
+                rxJavaZip();
+
                 break;
         }
+    }
+
+
+    /**
+     * 应用:比如一个界面需要展示用户的一些信息, 而这些信息分别要从两个服务器接口中获取, 而只有当两个都获取到了之后才能进行展示, 这个时候就可以用Zip了
+     */
+    private void rxJavaZip() {
+
+        Api api = RxjavaRetrofitActivity2.getRetrofit().create(Api.class);
+
+        Observable<LoginData> observable1 = api.getLoginData("")
+                .subscribeOn(Schedulers.io());
+        Observable<RegisterData> observable2 = api.getRegisterData("")
+                .subscribeOn(Schedulers.io());
+        Observable.zip(observable1, observable2, new BiFunction<LoginData, RegisterData, String>() {
+            @Override
+            public String apply(LoginData loginData, RegisterData registerData) throws Exception {
+
+                return loginData+""+registerData+"";
+            }})
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        //do something;
+
+                    }
+                });
+
     }
 
 
