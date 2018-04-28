@@ -17,7 +17,9 @@
         <activity android:name=".rxjava.RxjavaRetrofitActivity2"></activity>
         <activity android:name=".rxjava.RxjavaActivity3"></activity>
         <activity android:name=".rxjava.RxjavaLoginActivity3"></activity>
-        <activity android:name=".rxjava.RxjavaActivity4">
+        <activity android:name=".rxjava.RxjavaActivity4"></activity>
+        <activity android:name=".rxjava.RxjavaActivity5"></activity>
+        <activity android:name=".rxjava.RxjavaActivity6">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

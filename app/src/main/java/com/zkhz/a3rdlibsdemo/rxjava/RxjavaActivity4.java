@@ -141,6 +141,7 @@ public class RxjavaActivity4 extends AppCompatActivity {
             }
         }).subscribeOn(Schedulers.io());
 
+
         Observable.zip(observable1, observable2, new BiFunction<Integer, String, String>() {
             @Override
             public String apply(Integer integer, String s) throws Exception {
