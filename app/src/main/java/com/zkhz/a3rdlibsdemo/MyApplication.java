@@ -2,7 +2,9 @@ package com.zkhz.a3rdlibsdemo;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
+import com.tencent.bugly.crashreport.CrashReport;
 import com.wonderkiln.blurkit.BlurKit;
 
 /**
@@ -24,6 +26,14 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context=this;
-        BlurKit.init(this);
+//        BlurKit.init(this);
+
+        CrashReport.initCrashReport(getApplicationContext(), "a907047b3a", true);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }
