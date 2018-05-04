@@ -114,7 +114,7 @@ public class RxjavaActivity3 extends AppCompatActivity {
                     list.add("FlatMap"+integer);
                 }
 
-              return Observable.fromIterable(list).delay(10, TimeUnit.MICROSECONDS);
+              return Observable.fromIterable(list).delay(10, TimeUnit.MICROSECONDS);//
             }
         }).subscribe(new Consumer<String>() {
             @Override
