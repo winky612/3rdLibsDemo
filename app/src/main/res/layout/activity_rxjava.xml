@@ -48,6 +48,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_day04" />
-
+    <Button
+        android:id="@+id/btn_day06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="day06"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_day05" />
 
 </android.support.constraint.ConstraintLayout>
