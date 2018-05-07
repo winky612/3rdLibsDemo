@@ -82,7 +82,7 @@ public class RxjavaActivity2 extends AppCompatActivity {
         observable.subscribeOn(Schedulers.newThread())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(new Consumer<Integer>() {
+                .doOnNext(new Consumer<Integer>() { //doOnNext()----它的作用是让!订阅者!在接收到数据之前干点有意思的事情
                     @Override
                     public void accept(Integer integer) throws Exception {
 
