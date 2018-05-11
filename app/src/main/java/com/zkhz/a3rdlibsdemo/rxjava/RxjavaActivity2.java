@@ -46,7 +46,7 @@ public class RxjavaActivity2 extends AppCompatActivity {
         //当我们在主线程去创建一个下游Observer来接收事件, 则这个下游默认就在主线程中接收事件
 
         //1--创建被观察者Observable(上游 事件产生者)
-        Observable<Integer> observable=Observable.create(new ObservableOnSubscribe<Integer>() {
+        Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> e) throws Exception {
 
@@ -58,7 +58,7 @@ public class RxjavaActivity2 extends AppCompatActivity {
         });
 
         //2--创建一个观察者Observer(下游 事件接收者)
-        Consumer<Integer> consumer=new Consumer<Integer>() {
+        Consumer<Integer> consumer = new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) throws Exception {
 
@@ -75,6 +75,7 @@ public class RxjavaActivity2 extends AppCompatActivity {
           * RxJava提供了5种调度器：.io() .computation() .immediate() .newThread() .trampoline()
           *
           * subscribeOn() 指定的是上游发送事件的线程, observeOn() 指定的是下游接收事件的线程.
+          *
           * 多次指定上游的线程只有第一次指定的有效, 也就是说多次调用subscribeOn() 只有第一次的有效, 其余的会被忽略
           * 多次指定下游的线程是可以的, 也就是说每调用一次observeOn() , 下游的线程就会切换一次.
           *

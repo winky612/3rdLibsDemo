@@ -24,7 +24,8 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
 /**
- *
+ * Map
+ * FlatMap
  */
 
 public class RxjavaActivity3 extends AppCompatActivity {
