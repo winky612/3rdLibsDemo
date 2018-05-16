@@ -23,9 +23,18 @@ public class DialogFragment2 extends DialogFragment {
     private EditText mUsername;
     private EditText mPassword;
 
+//    private LoginListener loginListener;
+
     public interface LoginListener{
         void onLogin(String username,String passwd);
     }
+
+//    public void setOnLoginListener(LoginListener loginListener){
+//
+//        this.loginListener=loginListener;
+//
+//
+//    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

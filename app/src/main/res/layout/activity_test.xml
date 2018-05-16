@@ -19,6 +19,13 @@
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/btn_df1" />
 
+    <Button
+        android:id="@+id/btn_df3"
+        app:layout_constraintTop_toBottomOf="@id/btn_df2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全屏或嵌入式" />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="wrap_content"
