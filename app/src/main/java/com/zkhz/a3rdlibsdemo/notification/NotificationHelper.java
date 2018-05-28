@@ -1,15 +1,14 @@
 package com.zkhz.a3rdlibsdemo.notification;
 
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.RemoteInput;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.RemoteInput;
 
 import com.zkhz.a3rdlibsdemo.R;
 
@@ -43,7 +42,7 @@ public class NotificationHelper extends ContextWrapper {
      * 您要启动的 Activity 是应用的正常工作流的一部分。在这种情况下，请设置 PendingIntent 以启动全新任务并为 PendingIntent提供返回栈，这将重现应用的正常“返回”行为
      *  例如，如果您在 Gmail 中撰写消息时点击了一封电子邮件的通知，则会立即转到该电子邮件。 触摸“返回”会依次转到收件箱和主屏幕，而不是转到您在撰写的邮件
      */
-    public NotificationCompat.Builder getNotifyBuilder(Context context,String title, String body) {
+    public NotificationCompat.Builder getNotifyBuilder(Context context, String title, String body) {
 
         Intent resultIntent = new Intent(context, ResultActivity1.class);
 
