@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">3rdLibsDemo</string>
+    <string name="add_action">snooze</string>
+    <string name="reply_label">reply_label</string>
+    <string name="lable">lable</string>
     <string-array name="d">
         <item >dsfg</item>
     </string-array>

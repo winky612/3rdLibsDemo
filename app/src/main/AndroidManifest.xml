@@ -19,7 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".notification.ResultActivity1"></activity>
+
+        <!--设置常规 Activity PendingIntent-->
+        <activity
+            android:name=".notification.ResultActivity1"
+            android:parentActivityName=".notification.NotifDemoActivity1">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".notification.NotifDemoActivity1" />
+        </activity>
+
+        <!--设置特殊 Activity PendingIntent-->
+        <activity
+            android:name=".notification.ResultActivity2"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="">
+
+        </activity>
     </application>
 
 </manifest>
