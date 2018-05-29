@@ -41,12 +41,18 @@
         app:layout_constraintTop_toBottomOf="@id/btn_2"
         android:background="@color/colorAccent"/>
 
-
+    <Button
+        android:id="@+id/btn_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_3"
+        android:text="bordless"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"/>
     <EditText
         style="@style/CustomText2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Hello, World!"
-        app:layout_constraintTop_toBottomOf="@id/btn_3" />
+        app:layout_constraintTop_toBottomOf="@id/btn_4" />
 
 </android.support.constraint.ConstraintLayout>

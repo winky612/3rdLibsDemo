@@ -2,8 +2,15 @@
     <string name="app_name">3rdLibsDemo</string>
     <string name="add_action">snooze</string>
     <string name="reply_label">reply_label</string>
-    <string name="lable">lable</string>
+    <string name="label">label</string>
+
+    <string name="compose_shortcut_short_label1">shortcut_short_label1</string>
+    <string name="compose_shortcut_long_label1">shortcut_long_label1</string>
+    <string name="compose_disabled_message1">compose_disabled_message1</string>
+
     <string-array name="d">
         <item >dsfg</item>
     </string-array>
+
+
 </resources>

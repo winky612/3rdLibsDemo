@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--在这个新的资源文件中，添加一个<shortcuts>根元素，其中包含一个<shortcut>元素列表。
+    每个<shortcut>元素又包含有关静态快捷方式的信息，包括其图标，其描述标签以及它在应用程序中启动的意图-->
+
+    <shortcut
+        android:shortcutId="compose"
+        android:enabled="true"
+        android:icon="@drawable/ic_sunny_black_24dp"
+        android:shortcutShortLabel="@string/compose_shortcut_short_label1"
+        android:shortcutLongLabel="@string/compose_shortcut_long_label1"
+        android:shortcutDisabledMessage="@string/compose_disabled_message1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.zkhz.a3rdlibsdemo"
+            android:targetClass="com.zkhz.a3rdlibsdemo.notification.NotifDemoActivity1" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+
+</shortcuts>
