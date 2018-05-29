@@ -128,6 +128,7 @@ public class NotificationHelper extends ContextWrapper {
 
         Intent replyIntent = new Intent(context,ResultActivity2.class);
         PendingIntent replyPendingIntent =PendingIntent.getActivity(context,11,replyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Action action = null;
 
 
         //1.创建一个可添加到通知操作的 RemoteInput.Builder 实例。 该类的构造函数接受系统用作文本输入密钥的字符串。 之后，手持式设备应用使用该密钥检索输入的文本。
@@ -138,28 +139,21 @@ public class NotificationHelper extends ContextWrapper {
                     .build();
 
             //2.使用 addRemoteInput() 向操作附加 RemoteInput 对象。
-            NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_wb_sunny_black_24dp,
+            action = new NotificationCompat.Action.Builder(R.drawable.ic_wb_sunny_black_24dp,
                     getString(R.string.lable), replyPendingIntent)
                     .addRemoteInput(remoteInput)
                     .build();
 
-            //3.对通知应用操作并发出通知。
 
-            return new NotificationCompat.Builder(getApplicationContext(),REPLAY)
-                    .setSmallIcon(getSmallIcon())
-                    .setContentTitle(title)
-                    .setContentText(body)
-                    .addAction(action)
-                    .build();
 
         }
 
-
-
-
-
-
-
+        //3.对通知应用操作并发出通知。
+        return new NotificationCompat.Builder(getApplicationContext(),REPLAY)
+                .setSmallIcon(getSmallIcon())
+                .setContentTitle(title)
+                .setContentText(body)
+                .addAction(action);
     }
 
     private int getSmallIcon() {
