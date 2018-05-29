@@ -23,6 +23,8 @@ public class NotificationHelper extends ContextWrapper {
     public static final String EXTRA_NOTIFICATION_ID = "id";
     public static final String MESSAGE_STYLE = "message style";
     public static final String REPLAY = "replay";
+    public static final String UPDATE = "update";
+    public static final int NOTIFY_ID  = 1;
 
     private static final String KEY_TEXT_REPLY = "key_text_reply";
 
@@ -122,6 +124,9 @@ public class NotificationHelper extends ContextWrapper {
     }
 
 
+    /**
+     * 直接回复通知消息
+     */
     public NotificationCompat.Builder getNotifyBuilder4(Context context,String title,String body) {
 
 
@@ -154,6 +159,23 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentTitle(title)
                 .setContentText(body)
                 .addAction(action);
+    }
+
+
+    /**
+     * 更新通知----通知堆叠并显示摘要
+     */
+    public NotificationCompat.Builder getNotifyBuilder5(Context context,String title,String body){
+
+        return new NotificationCompat.Builder(getApplicationContext(),UPDATE)
+                .setContentTitle(title)
+                .setContentText(body)
+                .setSmallIcon(getSmallIcon())
+                .setAutoCancel(true);
+
+
+
+
     }
 
     private int getSmallIcon() {

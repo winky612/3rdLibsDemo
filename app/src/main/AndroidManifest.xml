@@ -22,6 +22,7 @@
 
         <!--设置常规 Activity PendingIntent-->
         <activity
+            android:theme="@style/CustomTheme"
             android:name=".notification.ResultActivity1"
             android:parentActivityName=".notification.NotifDemoActivity1">
 

@@ -19,11 +19,14 @@ public class NotifDemoActivity1 extends AppCompatActivity {
     Button btn1;
     @BindView(R.id.btn_2)
     Button btn2;
+    @BindView(R.id.btn_3)
+    Button btn3;
 
     private NotificationHelper notificationHelper;
 
     private static final int BUTTON_01 = 1100;
     private static final int BUTTON_02 = 1101;
+    private static final int BUTTON_03 = 1103;
 
 
     @Override
@@ -47,7 +50,14 @@ public class NotifDemoActivity1 extends AppCompatActivity {
                 break;
             case BUTTON_02:
 
-                builder=notificationHelper.getNotifyBuilder2(NotifDemoActivity1.this,title,"button2");
+                builder = notificationHelper.getNotifyBuilder2(NotifDemoActivity1.this, title, "button2");
+                break;
+            case BUTTON_03:
+
+                int numMessage = 0;
+                builder = notificationHelper.getNotifyBuilder2(NotifDemoActivity1.this, title, "button update");
+                builder.setContentText(getCurrentText("currentText"))
+                        .setNumber(++numMessage);//在通知右侧显示数字
                 break;
 
         }
@@ -61,7 +71,13 @@ public class NotifDemoActivity1 extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_1,R.id.btn_2})
+    private CharSequence getCurrentText(String currentText) {
+
+        return currentText;
+
+    }
+
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
@@ -72,7 +88,12 @@ public class NotifDemoActivity1 extends AppCompatActivity {
             case R.id.btn_2:
 
                 //创建特殊通知
-                notifySample(BUTTON_02,"BUTTON_02");
+                notifySample(BUTTON_02, "BUTTON_02");
+                break;
+
+            case R.id.btn_3:
+
+                notifySample(BUTTON_03, "BUTTON UPDATE");
                 break;
         }
     }
