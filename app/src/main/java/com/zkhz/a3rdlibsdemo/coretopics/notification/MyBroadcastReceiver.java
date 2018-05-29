@@ -1,4 +1,4 @@
-package com.zkhz.a3rdlibsdemo.notification;
+package com.zkhz.a3rdlibsdemo.coretopics.notification;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

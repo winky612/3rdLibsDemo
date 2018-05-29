@@ -14,7 +14,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.zkhz.a3rdlibsdemo"
-            android:targetClass="com.zkhz.a3rdlibsdemo.notification.NotifDemoActivity1" />
+            android:targetClass="com.zkhz.a3rdlibsdemo.coretopics.notification.NotifDemoActivity1" />
         <!-- If your shortcut is associated with multiple intents, include them
              here. The last intent in the list determines what the user sees when
              they launch this shortcut. -->

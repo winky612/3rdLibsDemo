@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".blur.BlurDemoActivity"></activity>
-        <activity android:name=".notification.NotifDemoActivity1">
+        <activity android:name=".coretopics.notification.NotifDemoActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,17 +25,17 @@
         <!--设置常规 Activity PendingIntent-->
         <activity
             android:theme="@style/CustomTheme"
-            android:name=".notification.ResultActivity1"
-            android:parentActivityName=".notification.NotifDemoActivity1">
+            android:name=".coretopics.notification.ResultActivity1"
+            android:parentActivityName=".coretopics.notification.NotifDemoActivity1">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".notification.NotifDemoActivity1" />
+                android:value=".coretopics.notification.NotifDemoActivity1" />
         </activity>
 
         <!--设置特殊 Activity PendingIntent-->
         <activity
-            android:name=".notification.ResultActivity2"
+            android:name=".coretopics.notification.ResultActivity2"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="">
