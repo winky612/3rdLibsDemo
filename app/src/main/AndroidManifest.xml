@@ -13,11 +13,12 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".blur.BlurDemoActivity"></activity>
         <activity android:name=".coretopics.notification.NotifDemoActivity1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+            <!--写在程序启动入口的activity中-->
             <meta-data android:name="android.app.shortcuts"
              android:resource="@xml/shortcuts"></meta-data>
         </activity>
@@ -39,7 +40,19 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="com.zkhz.a3rdlibsdemo.activity.ActionCall" />
+            </intent-filter>
         </activity>
+
+        <activity android:name=".coretopics.activity.IntentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".coretopics.activity.LifeCycleActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--限定符是一种加入到资源目录名称中，用来定义这些资源适用的设备配置的简短字符串-->
+
     <style name="AppTheme" parent="BaseAppTheme">
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@android:transition/slide_right</item>

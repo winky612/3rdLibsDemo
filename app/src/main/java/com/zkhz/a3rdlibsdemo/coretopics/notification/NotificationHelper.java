@@ -96,7 +96,7 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentText(body)
                 .setSmallIcon(getSmallIcon())
                 .setAutoCancel(true)//当用户点击它时会自动删除通知
-                .addAction(R.drawable.ic_wb_sunny_black_24dp, //这就像设置通知的默认点按操作一样，除了不是启动活动外，还可以执行各种其他操作，例如启动在后台执行作业的BroadcastReceiver，以便操作不会中断已经打开的应用程序。
+                .addAction(R.drawable.ic_sunny_black_24dp, //这就像设置通知的默认点按操作一样，除了不是启动活动外，还可以执行各种其他操作，例如启动在后台执行作业的BroadcastReceiver，以便操作不会中断已经打开的应用程序。
                         getString(R.string.add_action),
                         snoozePending)
                 .setCategory(NotificationCompat.CATEGORY_ALARM)//Android使用某些预定义的系统范围类别来确定当用户启用“请勿打扰”模式时是否使用给定通知打扰用户。当设备处于免打扰模式时，系统将使用有关您的通知类别的这些信息来做出关于显示通知的决定
@@ -144,8 +144,8 @@ public class NotificationHelper extends ContextWrapper {
                     .build();
 
             //2.使用 addRemoteInput() 向操作附加 RemoteInput 对象。
-            action = new NotificationCompat.Action.Builder(R.drawable.ic_wb_sunny_black_24dp,
-                    getString(R.string.lable), replyPendingIntent)
+            action = new NotificationCompat.Action.Builder(R.drawable.ic_sunny_black_24dp,
+                    getString(R.string.label), replyPendingIntent)
                     .addRemoteInput(remoteInput)
                     .build();
 
