@@ -5,24 +5,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.FrameLayout;
 
 import com.zkhz.a3rdlibsdemo.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class ExampleFragmentActivity extends AppCompatActivity {
-    @BindView(R.id.fl_container)
-    FrameLayout flContainer;
-    @BindView(R.id.fg2)
+
     Example2Fragment fg2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example_fragment);
-        ButterKnife.bind(this);
+
 
         loadFragment1();
         loadFragment2();
