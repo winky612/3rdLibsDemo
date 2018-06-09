@@ -8,6 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.zkhz.a3rdlibsdemo.R;
 
+/**
+ * Activity 生命周期与fragment生命周期之间的最显著差异在于它们在其各自返回栈中的存储方式。
+ * 默认情况下，Activity 停止时会被放入由系统管理的 Activity 返回栈（以便用户通过返回按钮回退到 Activity，任务和返回栈对此做了阐述）。
+ * 不过，仅当您在移除fragment的事务执行期间通过调用 addToBackStack() 显式请求保存实例时，系统才会将fragment放入由宿主 Activity 管理的返回栈。
+ *
+ * fragment所在的 Activity 的生命周期会直接影响fragment的生命周期，其表现为，Activity 的每次生命周期回调都会引发每个fragment的类似回调。
+ */
+
 public class ExampleFragmentActivity extends AppCompatActivity {
 
     Example2Fragment fg2;

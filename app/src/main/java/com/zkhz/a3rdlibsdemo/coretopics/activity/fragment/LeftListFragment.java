@@ -21,18 +21,21 @@ import com.zkhz.a3rdlibsdemo.R;
  * 例如，如果一个新闻应用的 Activity 有两个片段 — 一个用于显示文章列表（片段 A），另一个用于显示文章（片段 B）— 那么片段 A 必须在列表项被选定后告知 Activity，以便它告知片段 B 显示该文章
  */
 
+
+/**
+ * Demo分析(配合layout中的注释看):
+ * 用户点击列表项时可能会出现两种行为：系统可能会创建并显示一个新片段，从而在同一Activity 中显示详细信息（将片段添加到 FrameLayout），
+ * 也可能会启动一个新 Activity（在该Activity中可显示fragment），具体取决于这两个布局中哪一个处于活动状态(也就设备是平板还是手机)。
+ */
+
 public class LeftListFragment extends ListFragment {
 
     private ListView listView;
     private onTitleSelectedListener listener;
     private String[] titles = {"title 1", "title 2", "title 3", "title 4"};
+    boolean mDualPane;
+    int mCurCheckPosition;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, titles));
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,16 +43,43 @@ public class LeftListFragment extends ListFragment {
         // 设置ListFragment默认的ListView
     }
 
-//    @Override
-//    public void onViewCreated(View view, Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        // 设置ListFragment默认的ListView
-//        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, titles));
-//    }
+    //Activity 的每个连续状态如何决定片段可以收到的回调方法。 例如，当 Activity 收到其 onCreate() 回调时，Activity 中的片段只会收到 onActivityCreated() 回调。
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Populate list with our static array of titles.
+        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, titles));
+
+
+        // Check to see if we have a frame in which to embed the details fragment directly in the containing UI.
+        View detailFrame = getActivity().findViewById(R.id.fg_right);
+        mDualPane = detailFrame != null && detailFrame.getVisibility() == View.VISIBLE;
+
+        if (savedInstanceState != null) {
+            // Restore last state for checked position.
+            mCurCheckPosition = savedInstanceState.getInt("curChoice", 0);
+        }
+
+        if (mDualPane) {
+            // In dual-pane mode, the list view highlights the selected item.
+            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            // Make sure our UI is in the correct state.
+            showDetails(mCurCheckPosition);
+
+        }
+
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("curChoice", mCurCheckPosition);
+    }
 
     // Container Activity must implement this interface
     public interface onTitleSelectedListener {
-//        void onTitleSelected(Uri articleUri);
         void onTitleSelected(String str);
     }
 
@@ -73,8 +103,27 @@ public class LeftListFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
 
-        listener.onTitleSelected(position + "");
+//        listener.onTitleSelected(position + "");
 
+        showDetails(position);
+
+    }
+
+    /**
+     * Helper function to show the details of a selected item, either by
+     * displaying a fragment in-place in the current UI, or starting a
+     * whole new activity in which it is displayed.
+     */
+    private void showDetails(int index) {
+
+        mCurCheckPosition = index;
+        if (mDualPane) {
+            // We can display everything in-place with fragments, so update the list to highlight the selected item and show the data.
+            getListView().setItemChecked(index, true);
+            // Check what fragment is currently shown, replace if needed.
+            RightListFragment rightListFragment = (RightListFragment) getFragmentManager().findFragmentById(R.id.fg_right);
+
+        }
 
     }
 }
