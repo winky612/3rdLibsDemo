@@ -15,7 +15,7 @@ import com.zkhz.a3rdlibsdemo.room.entity.User;
 
 /**
  * 你可以使用这个组件创建一个数据库holder。
- * 注解定义了一系列entities并且类的内容提供了一系列DAOs，它也是下层的主要连接 的访问点。
+ * 注解定义了一系列entities并且类的内容提供了一系列DAOs(提供返回 Dao 对象的抽象方法)它也是下层的主要连接 的访问点。
  * 注解的类应该是一个抽象的继承 RoomDatabase的类。在运行时，你能获得一个实例通过调用Room.databaseBuilder()或者 Room.inMemoryDatabaseBuilder()
  */
 

@@ -2,11 +2,14 @@ package com.zkhz.a3rdlibsdemo.room.dao;
 
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
 import com.zkhz.a3rdlibsdemo.room.entity.User;
 
 import java.util.List;
+
+import static android.arch.persistence.room.OnConflictStrategy.IGNORE;
 
 
 /**
@@ -27,6 +30,14 @@ public interface UserDao {
     @Query("select * from user where name = :firstName and lastName = :lastName")
     List<User> findUserByNameAndLastName(String firstName, String lastName);
 
-    
+    @Insert(onConflict = IGNORE)
+    void insertUser(User user);
+
+    @Query("delete from User")
+    void deleteAll();
+
+    @Query("select * from User where :age == :age")
+    List<User> findUsersYoungerThan(int age);
+
 
 }

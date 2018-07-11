@@ -35,10 +35,10 @@ public class Loan {
 
 
     //默认字段名为数据库表名;可以通过@ColumnInfo修改列名称
-    @ColumnInfo(name ="book_id")
+    @ColumnInfo(name="book_id")
     public String bookId;
 
-    @ColumnInfo(name = "user_id")
+    @ColumnInfo(name="user_id")
     public String userId;
 
 
