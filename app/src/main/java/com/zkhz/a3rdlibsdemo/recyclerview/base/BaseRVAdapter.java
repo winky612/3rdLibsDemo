@@ -34,6 +34,7 @@ public abstract class BaseRVAdapter<T> extends RecyclerView.Adapter<BaseRVAdapte
 
     public void setList(List<T> list) {
         this.list = list;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -56,7 +57,7 @@ public abstract class BaseRVAdapter<T> extends RecyclerView.Adapter<BaseRVAdapte
                 @Override
                 public void onClick(View v) {
                     if (null!=listener){
-                        listener.OnItemClick(BaseViewHolder.this);
+                        listener.onItemClick(BaseViewHolder.this);
                     }
 
                 }

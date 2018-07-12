@@ -14,21 +14,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".blur.BlurDemoActivity"></activity>
-        <activity android:name=".recyclerview.RVActivity">
+        <activity android:name=".recyclerview.RVActivity"></activity>
+        <activity android:name=".recyclerview.boy.BoyRVActivity"></activity>
+        <activity android:name=".recyclerview.girl.GirlRVActivity"></activity>
+        <activity android:name=".recyclerview.animal.AnimalRVActivity"></activity>
+        <activity android:name=".recyclerview.setting.SettingActivtiy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".recyclerview.boy.BoyRVActivity">
-
-        </activity>
-        <activity android:name=".recyclerview.girl.GirlRVActivity">
-
-        </activity>
-        <activity android:name=".recyclerview.animal.AnimalRVActivity">
-
         </activity>
     </application>
 

@@ -52,7 +52,7 @@ public abstract class BaseRVAdapter2<T> extends RecyclerView.Adapter<BaseRVAdapt
                 public void onClick(View v) {
                     if (listener!=null){
 
-                    listener.OnItemClick(BaseViewHolder2.this);
+                    listener.onItemClick(BaseViewHolder2.this);
                     }
                 }
             });

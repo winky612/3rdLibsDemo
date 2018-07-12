@@ -10,5 +10,5 @@ import android.support.v7.widget.RecyclerView;
 
 public interface OnItemClickListener {
 
-    void OnItemClick(RecyclerView.ViewHolder holder);
+    void onItemClick(RecyclerView.ViewHolder holder);
 }

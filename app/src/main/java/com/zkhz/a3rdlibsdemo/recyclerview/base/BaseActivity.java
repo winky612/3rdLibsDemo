@@ -25,7 +25,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         //如果界面初始化某些数据成功(传入的数据时正确的) 走初始化控件 数据;若初始化失败,
         if (initArgs(getIntent().getExtras())){
 
-            getContentLayoutId();
+            int layoutId=getContentLayoutId();
+            setContentView(layoutId);
             initWidget();
             initData();
         }else {

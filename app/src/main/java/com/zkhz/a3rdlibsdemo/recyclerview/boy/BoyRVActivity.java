@@ -42,7 +42,7 @@ public class BoyRVActivity extends AppCompatActivity {
         adapter.setList(list);
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void OnItemClick(RecyclerView.ViewHolder holder) {
+            public void onItemClick(RecyclerView.ViewHolder holder) {
                 Toast.makeText(BoyRVActivity.this, "click"+list.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -59,7 +59,7 @@ public class RVActivity extends AppCompatActivity {
            }
 
            @Override
-           public void OnItemClick(RecyclerView.ViewHolder holder) {
+           public void onItemClick(RecyclerView.ViewHolder holder) {
 
                Toast.makeText(RVActivity.this, " item"+fruits.get(holder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
 

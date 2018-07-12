@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="setting_back_horizontal">20dp</dimen>
+    <dimen name="setting_back_vertical">20dp</dimen>
+    <dimen name="setting_icon_horizontal">16dp</dimen>
+    <dimen name="setting_icon_vertical">16dp</dimen>
+    <dimen name="setting_txt">16sp</dimen>
+
+</resources>
