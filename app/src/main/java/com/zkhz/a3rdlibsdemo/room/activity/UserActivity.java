@@ -11,6 +11,7 @@ import com.zkhz.a3rdlibsdemo.room.entity.User;
 import com.zkhz.a3rdlibsdemo.room.utils.DatabaseInitializer;
 
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,13 +51,11 @@ public class UserActivity extends AppCompatActivity {
         StringBuilder sb=new StringBuilder();
         List<User> youngUsers = dataBase.userModel().findUsersYoungerThan(35);
         for (User youngUser:youngUsers){
-            sb.append(String.format())
+            sb.append(String.format(Locale.US,"%s, %s (%d)\n",youngUser.lastName,youngUser.name,youngUser.age));
 
         }
 
-
-
-
+        youngUsersTv.setText(sb);
 
     }
 
