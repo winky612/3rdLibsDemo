@@ -27,7 +27,7 @@
         android:layout_marginRight="16dp"
         android:gravity="center_vertical"
         android:text="@string/about_us"
-        android:textSize="@dimen/setting_txt"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintLeft_toRightOf="@id/iv_about_us"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

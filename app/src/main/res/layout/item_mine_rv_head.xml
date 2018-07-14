@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="104dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="92dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_portrait"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="13dp"
+        android:src="@mipmap/ol_version"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_register_load"
+        android:layout_width="112dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/btn_setting_load"
+        android:paddingBottom="6dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="6dp"
+        android:visibility="gone"
+        android:text="@string/mine_load_regi"
+        android:textColor="@color/colore15e"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintLeft_toRightOf="@id/iv_portrait"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_personal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="@id/gl_left"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="hahah"
+            android:textColor="@color/color4a"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_sex"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/icon_male"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nickname" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="16岁"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintLeft_toRightOf="@id/iv_sex"
+            app:layout_constraintTop_toBottomOf="@id/tv_nickname" />
+
+        <TextView
+            android:id="@+id/tv_ol_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="鸥乐号: 123456"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_sex" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

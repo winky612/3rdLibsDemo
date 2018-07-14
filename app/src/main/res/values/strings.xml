@@ -5,5 +5,21 @@
     <string name="feedback">意见反馈</string>
     <string name="set_code">设置密码</string>
     <string name="live_agreement">直播协议</string>
-    <string name="clear_cache">清除协议</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="version">v1.0.0</string>
+    <string name="update_version">当前有最新版本,是否升级到最新版本</string>
+    <string name="old_code">原始密码:</string>
+    <string name="new_code">新密码:</string>
+    <string name="confirm_code">确认密码:</string>
+    <string name="please_input_old_code">请输入原始密码</string>
+    <string name="please_input_new_code">请输入新密码</string>
+    <string name="please_confirm_new_code">请确认密码</string>
+    <string name="submit">提交</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="my_focus">我的关注</string>
+    <string name="send_gift">送出礼物</string>
+    <string name="receive_gift">收到礼物</string>
+    <string name="live_info">直播信息</string>
+    <string name="my_msg">我的消息</string>
+    <string name="mine_load_regi">登录/注册</string>
 </resources>

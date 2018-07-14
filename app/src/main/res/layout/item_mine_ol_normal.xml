@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_left2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+    <include
+        android:id="@+id/view_hor"
+        layout="@layout/view_hori_10h"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_portrait" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/setting_icon_horizontal"
+        android:layout_height="@dimen/setting_icon_vertical"
+        android:layout_marginTop="17dp"
+        app:layout_constraintLeft_toLeftOf="@id/gl_left2"
+        app:layout_constraintTop_toBottomOf="@id/view_hor" />
+
+    <TextView
+        android:id="@+id/tv_txt"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableRight="@mipmap/setting_right_into"
+        android:gravity="center_vertical"
+        android:text="@string/my_wallet"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_hor" />
+
+</android.support.constraint.ConstraintLayout>
