@@ -1,4 +1,4 @@
-package com.zkhz.a3rdlibsdemo.retrofit;
+package com.zkhz.a3rdlibsdemo.retrofit.entity;
 
 import java.util.List;
 
