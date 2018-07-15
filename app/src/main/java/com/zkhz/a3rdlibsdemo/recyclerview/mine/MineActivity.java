@@ -61,6 +61,15 @@ public class MineActivity extends BaseActivity {
 
             }
         });
+
+        adapter.setOnPortraitClickListener(new MineAdapter.onPortraitClickListener() {
+            @Override
+            public void onPortraitClick() {
+                Toast.makeText(MineActivity.this, "Portrait", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         rvSetting.setAdapter(adapter);
 
 

@@ -1,5 +1,6 @@
 package com.zkhz.a3rdlibsdemo.recyclerview.mine;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +16,14 @@ import com.zkhz.a3rdlibsdemo.recyclerview.base.OnItemClickListener;
  */
 public class MineAdapter extends BaseRVAdapter<MineData> {
 
+    public onPortraitClickListener portraitClickListener;
+
+    public void setOnPortraitClickListener(onPortraitClickListener listener){
+
+        this.portraitClickListener = listener;
+
+    }
+
 
     @Override
     public BaseViewHolder<MineData> onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -27,7 +36,7 @@ public class MineAdapter extends BaseRVAdapter<MineData> {
 
     @Override
     public int getItemViewType(int position) {
-        return getList().get(position).getTxt()+""== null ? 1 : 0;
+        return getList().get(position).getTxt()==-1? 1 : 0;
     }
 
     //头
@@ -60,6 +69,16 @@ public class MineAdapter extends BaseRVAdapter<MineData> {
                 }
             });
 
+            portrait.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (portraitClickListener!=null){
+                        portraitClickListener.onPortraitClick();
+                    }
+
+                }
+            });
+
         }
 
         @Override
@@ -69,7 +88,7 @@ public class MineAdapter extends BaseRVAdapter<MineData> {
             name.setText(data.getName());
             sex.setImageResource(data.getSex());
             olNum.setText(data.getOlNum());
-            age.setText(data.getAge());
+            age.setText(String.valueOf(data.getAge()));
 
         }
     }
@@ -102,8 +121,16 @@ public class MineAdapter extends BaseRVAdapter<MineData> {
         public void bindData(MineData data) {
 
             icon.setImageResource(data.getIcon());
-            txt.setText(data.getTxt());
+            txt.setText(itemView.getResources().getString(data.getTxt()));
 
         }
     }
+
+
+    public interface onPortraitClickListener{
+
+        void onPortraitClick();
+
+    }
+
 }

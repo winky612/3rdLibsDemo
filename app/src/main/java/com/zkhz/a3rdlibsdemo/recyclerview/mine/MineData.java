@@ -6,7 +6,7 @@ package com.zkhz.a3rdlibsdemo.recyclerview.mine;
 public class MineData {
 
     private int icon;
-    private int txt;
+    private int txt = -1;
 
     private int portrait;
     private String name;

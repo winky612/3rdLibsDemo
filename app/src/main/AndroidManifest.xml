@@ -18,7 +18,8 @@
         <activity android:name=".recyclerview.boy.BoyRVActivity"></activity>
         <activity android:name=".recyclerview.girl.GirlRVActivity"></activity>
         <activity android:name=".recyclerview.animal.AnimalRVActivity"></activity>
-        <activity android:name=".recyclerview.setting.SettingActivtiy">
+        <activity android:name=".recyclerview.setting.SettingActivtiy"/>
+        <activity android:name=".recyclerview.mine.MineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
