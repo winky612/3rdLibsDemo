@@ -30,7 +30,6 @@ public class MineActivity extends BaseActivity {
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_setting;
-    }
 
 
     @Override
@@ -57,11 +56,10 @@ public class MineActivity extends BaseActivity {
                 }
 
 
-                //头像点击事件???
-
             }
         });
 
+        //头像点击事件
         adapter.setOnPortraitClickListener(new MineAdapter.onPortraitClickListener() {
             @Override
             public void onPortraitClick() {
