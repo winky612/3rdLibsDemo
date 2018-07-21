@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.zkhz.a3rdlibsdemo.dialogfragment.DialogFragment1;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements BottomSheetDialog
     Button btnBottomView;
     @BindView(R.id.btn_bottom_dialog2)
     Button btnBottomDialog2;
+    @BindView(R.id.edt_more_lines)
+    EditText edtMoreLines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements BottomSheetDialog
     @Override
     public void onBtnClick(String edt) {
 
-        Toast.makeText(this, edt+"", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, edt + "", Toast.LENGTH_SHORT).show();
 
     }
 }
