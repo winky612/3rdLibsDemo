@@ -16,7 +16,7 @@ import butterknife.OnClick;
  * Created by wk on 2018/7/22.
  */
 
-public class PersonInfoActivity extends AppCompatActivity {
+public class PersonInfoActivity extends AppCompatActivity implements ChangeInfoBottomSheetFragment.onChangeClickListener {
     @BindView(R.id.tv_name)
     TextView tvName;
     @BindView(R.id.tv_sex)
@@ -55,4 +55,10 @@ public class PersonInfoActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onChangeClick(String content) {
+
+        tvName.setText(content);
+
+    }
 }

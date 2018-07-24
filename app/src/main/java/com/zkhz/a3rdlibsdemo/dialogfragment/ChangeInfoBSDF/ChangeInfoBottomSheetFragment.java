@@ -53,14 +53,25 @@ public class ChangeInfoBottomSheetFragment extends BottomSheetDialogFragment {
         if (args != null) {
             mTitle = args.getString(KEY_TITLE);
         }
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_bottom_change_info, null);
+
+
         unbinder = ButterKnife.bind(this, view);
         return view;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tvTitle.setText(mTitle);
+
     }
 
     @Override
@@ -77,6 +88,8 @@ public class ChangeInfoBottomSheetFragment extends BottomSheetDialogFragment {
                 mContent = edtInput.getText().toString();
                 listener = (onChangeClickListener) getActivity();
                 listener.onChangeClick(mContent);
+
+                dismiss();
 
                 break;
             case R.id.btn_no:
