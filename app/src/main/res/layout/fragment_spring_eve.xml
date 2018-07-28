@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_spring_eve"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg_home">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_spring_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="2019第三届央视老年春晚"
+            android:textColor="@color/colorfde6"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/iv_home1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_spring_title" />
+
+        <com.wk.banner.BannerLayout
+            android:id="@+id/banner_home"
+            android:layout_width="0dp"
+            android:layout_height="188dp"
+            android:layout_margin="12dp"
+            app:autoPlayDuration="4000"
+            app:indicatorMargin="10dp"
+            app:indicatorPosition="centerBottom"
+            app:indicatorShape="oval"
+            app:indicatorSpace="3dp"
+            app:isAutoPlay="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_title1"
+            app:scrollDuration="600"
+            app:selectedIndicatorColor="@color/colorfde6"
+            app:selectedIndicatorHeight="6dp"
+            app:selectedIndicatorWidth="6dp"
+            app:unSelectedIndicatorColor="@color/colorWhite"
+            app:unSelectedIndicatorHeight="6dp"
+            app:unSelectedIndicatorWidth="6dp">
+        </com.wk.banner.BannerLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_home_vote"
+            android:layout_width="0dp"
+            android:layout_height="398dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/bkg_home_vote"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_home">
+
+            <TextView
+                android:id="@+id/tv_join_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="48dp"
+                android:text="1758人"
+                android:textColor="@color/colorb1d"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_join_count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/joiner"
+                android:textColor="@color/color99"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_join_count" />
+
+            <TextView
+                android:id="@+id/tv_view_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="48dp"
+                android:text="58.4万"
+                android:textColor="@color/colorb1d"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_join_count"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_view_count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/view_count"
+                android:textColor="@color/color99"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintLeft_toRightOf="@id/tv_join_count2"
+                app:layout_constraintTop_toBottomOf="@id/tv_join_count" />
+
+            <TextView
+                android:id="@+id/tv_ticket_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="48dp"
+                android:text="58.4万"
+                android:textColor="@color/colorb1d"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_view_count"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_ticket_count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/ticket_sum"
+                android:textColor="@color/color99"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintLeft_toRightOf="@id/tv_view_count2"
+                app:layout_constraintTop_toBottomOf="@id/tv_join_count" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_home_action"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="31dp"
+                android:background="@mipmap/bkg_home_cloud"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_join_count2">
+
+                <ImageView
+                    android:id="@+id/view_hor_red1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="26dp"
+                    android:src="@mipmap/view_hor_red"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/view_hor_red2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="76dp"
+                    android:layout_marginTop="26dp"
+                    android:src="@mipmap/view_hor_red"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_action_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="活动内容介绍"
+                    android:textColor="@color/colorb1d"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_action_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginTop="20dp"
+                    android:text="全国中老年春晚以弘扬中华传统文化、促进社会和谐发展，开展中老年文化艺术交流，体现“夕阳无限好，晚霞映朝晖”。以“振兴中华，圆梦中国”为主题。"
+                    android:textColor="@color/color4a"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_action_title" />
+
+                <TextView
+                    android:id="@+id/tv_action_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginTop="20dp"
+                    android:text="活动时间：2018年3月3日 至 2018年12月12日"
+                    android:textColor="@color/color4a"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_action_content" />
+
+                <TextView
+                    android:id="@+id/tv_review_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="7dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@mipmap/right_into_red"
+                    android:text="@string/review_back"
+                    android:textColor="@color/color5736"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_action_time" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/iv_red_cloud"
+                android:layout_width="wrap_content"
+                android:layout_height="13dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="17dp"
+                android:layout_marginTop="26dp"
+                android:src="@mipmap/iv_red_cloud"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_join_count2" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:src="@mipmap/iv_home2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_home" />
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_home_all_zones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="44dp"
+            android:background="@mipmap/bkg_home_all_zones"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:descendantFocusability="blocksDescendants"
+            app:layout_constraintTop_toBottomOf="@id/cl_home_vote">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_all_zones"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:src="@mipmap/iv_home3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_home_vote" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

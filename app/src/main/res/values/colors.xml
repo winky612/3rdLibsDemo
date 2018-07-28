@@ -3,4 +3,47 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorf4">#f4f4f4</color>
+    <color name="color62">#626262</color>
+    <color name="colorb761d">#eb731d</color>
+    <color name="color731d">#eb731d</color>
+    <color name="colorb7">#b7b7b7</color>
+    <color name="color4a">#4a4a4a</color>
+    <color name="color80">#808080</color>
+    <color name="color7400">#fa7400</color>
+    <color name="colore15e">#e15e00</color>
+    <color name="color44">#444444</color>
+    <color name="color99">#999999</color>
+    <color name="colord8">#d8d8d8</color>
+    <color name="colord00">#ffad00</color>
+    <color name="color69">#696969</color>
+    <color name="color6e">#6e6e6e</color>
+    <color name="colord6">#d6d6d6</color>
+    <color name="colorf0">#f0f0f0</color>
+    <color name="colorf8">#f8f8f8</color>
+    <color name="color443d">#ee443d</color>
+    <color name="colorf33">#f05f33</color>
+    <color name="colorfde6">#fefde6</color>
+    <color name="colorcf3">#fffcf3</color>
+    <color name="colorb1d">#b02b1d</color>
+    <color name="color5736">#ef5736</color>
+    <color name="edit_bgline_press">#6e6e6e</color>
+    <color name="edit_bgline_normal">#dbdbdb</color>
+
+
+
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="pickerview_timebtn_pre">#c2daf5</color>
+    <color name="pickerview_bg_topbar">#f5f5f5</color>
+
+    <color name="pickerview_topbar_title">#000000</color>
+    <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
+    <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
+    <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
+    <color name="pickerview_bgColor_overlay">#60000000</color>
+    <color name="pickerview_bgColor_default">#FFFFFFFF</color>
+
 </resources>
