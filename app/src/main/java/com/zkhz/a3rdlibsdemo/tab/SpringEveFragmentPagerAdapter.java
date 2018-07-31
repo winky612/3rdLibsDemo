@@ -12,7 +12,6 @@ import java.util.List;
 public class SpringEveFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragmentList;
-    List<String> titleList;
 
 
     public SpringEveFragmentPagerAdapter(FragmentManager fm, List<Fragment> list) {

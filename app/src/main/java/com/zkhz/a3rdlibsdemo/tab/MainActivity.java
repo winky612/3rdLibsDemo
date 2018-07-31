@@ -12,9 +12,6 @@ import android.widget.TextView;
 
 import com.githang.statusbar.StatusBarCompat;
 import com.zkhz.a3rdlibsdemo.R;
-import com.zkhz.homeworld.live.LiveFragment;
-import com.zkhz.homeworld.springeve.home.SpringEveFragment;
-import com.zkhz.homeworld.springeve.home.SpringEveFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +35,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
         fragmentList.add(LiveFragment.newInstance());
         fragmentList.add(SpringEveFragment.newInstance());
 
         tabs = new String[]{"直播", "春晚"};
         tabIcons = new int[]{R.drawable.selector_tab_home_ivlive, R.drawable.selector_tab_home_ivspring};
+
 
         pagerAdapter = new SpringEveFragmentPagerAdapter(getSupportFragmentManager(),fragmentList);
         vpHome.setAdapter(pagerAdapter);
@@ -54,15 +50,12 @@ public class MainActivity extends BaseActivity {
 
             TabLayout.Tab tab = tlHome.getTabAt(i);
             if (tab != null) {
-
                 tab.setCustomView(getTabView(i));
             }
-
             if (tab.getCustomView() != null) {
                 View tabView = (View) tab.getCustomView().getParent();
                 tabView.setTag(i);
             }
-
 
         }
 
