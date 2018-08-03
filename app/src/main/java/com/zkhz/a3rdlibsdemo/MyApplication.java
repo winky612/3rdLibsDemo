@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.wonderkiln.blurkit.BlurKit;
+import com.zkhz.a3rdlibsdemo.rongyun.ChatroomKit;
+import com.zkhz.a3rdlibsdemo.rongyun.DataInterface;
 
 /**
  * Created by Administrator on 2018/3/29 0029.
@@ -11,7 +13,12 @@ import com.wonderkiln.blurkit.BlurKit;
 
 public class MyApplication extends Application {
 
-    private Context context;
+    private static Context context;
+
+    public static Context getContext() {
+
+        return context;
+    }
 
     public MyApplication() {
     }
@@ -25,5 +32,9 @@ public class MyApplication extends Application {
         super.onCreate();
         context=this;
         BlurKit.init(this);
+
+        ChatroomKit.init(this, DataInterface.appKey);
+
+
     }
 }
