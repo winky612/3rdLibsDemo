@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import cn.rongcloud.chatroomdemo.R;
-import cn.rongcloud.chatroomdemo.utils.CommonUtils;
+import com.zkhz.a3rdlibsdemo.R;
+import com.zkhz.a3rdlibsdemo.rongyun.message.ChatroomStart;
+import com.zkhz.a3rdlibsdemo.rongyun.utils.CommonUtils;
+
 import io.rong.imlib.model.MessageContent;
-import io.rong.message.ChatroomStart;
+
 
 /**
  * Created by duanliuyi on 2018/6/20.

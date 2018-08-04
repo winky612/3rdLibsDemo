@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import cn.rongcloud.chatroomdemo.R;
-import cn.rongcloud.chatroomdemo.utils.DataInterface;
+import com.zkhz.a3rdlibsdemo.R;
+import com.zkhz.a3rdlibsdemo.rongyun.DataInterface;
+import com.zkhz.a3rdlibsdemo.rongyun.message.ChatroomAdminRemove;
+
 import io.rong.imlib.model.MessageContent;
-import io.rong.message.ChatroomAdminRemove;
+
 
 /**
  * Created by duanliuyi on 2018/6/20.

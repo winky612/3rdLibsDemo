@@ -2,8 +2,8 @@ package com.zkhz.a3rdlibsdemo.rongyun.messageview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import com.zkhz.a3rdlibsdemo.R;
 
-import cn.rongcloud.chatroomdemo.R;
 import io.rong.imlib.model.MessageContent;
 
 public class UnknownMsgView extends BaseMsgView {
