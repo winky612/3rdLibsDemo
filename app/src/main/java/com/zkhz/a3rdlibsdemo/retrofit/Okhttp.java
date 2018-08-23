@@ -69,7 +69,7 @@ public class Okhttp {
                                         FormBody newFormBody = new FormBody.Builder()
                                                 .add("data", dataParamter)
                                                 .build();
-                                        chain.proceed(originRequest.newBuilder().put(newFormBody)
+                                        return chain.proceed(originRequest.newBuilder().post(newFormBody)
                                                 .build());
                                     }
                                 }
