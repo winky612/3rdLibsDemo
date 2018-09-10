@@ -17,14 +17,16 @@
         <activity android:name=".recyclerview.RVActivity"></activity>
         <activity android:name=".recyclerview.boy.BoyRVActivity"></activity>
         <activity android:name=".recyclerview.girl.GirlRVActivity"></activity>
-        <activity android:name=".recyclerview.animal.AnimalRVActivity"></activity>
-        <activity android:name=".recyclerview.setting.SettingActivtiy"/>
-        <activity android:name=".recyclerview.mine.MineActivity">
+        <activity android:name=".recyclerview.animal.AnimalRVActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".recyclerview.setting.SettingActivtiy"/>
+        <activity android:name=".recyclerview.mine.MineActivity">
+
         </activity>
     </application>
 

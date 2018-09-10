@@ -16,6 +16,12 @@ import java.util.List;
 public class AnimalRVAdapter extends RecyclerView.Adapter<AnimalRVAdapter.MyAnimalHolder> {
 
     private List<Animal> list;
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+
+        this.listener = onItemClickListener;
+    }
 
     public AnimalRVAdapter(List<Animal> list) {
         this.list = list;
@@ -36,7 +42,7 @@ public class AnimalRVAdapter extends RecyclerView.Adapter<AnimalRVAdapter.MyAnim
     public MyAnimalHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
 
-        return new MyAnimalHolder(parent,R.layout.item_rv);
+        return new MyAnimalHolder(parent, R.layout.item_rv, listener);
 
     }
 
@@ -57,11 +63,24 @@ public class AnimalRVAdapter extends RecyclerView.Adapter<AnimalRVAdapter.MyAnim
         private TextView textView;
 
 
-        public MyAnimalHolder(ViewGroup parent,int layoutId) {
+        public MyAnimalHolder(ViewGroup parent, int layoutId, OnItemClickListener listener) {
             super(LayoutInflater.from(parent.getContext()).inflate(layoutId,parent,false));
 
             textView=itemView.findViewById(R.id.tv_name);
 
+            if (listener != null) {
+
+                listener.onItemClick(MyAnimalHolder.this);
+            }
+
+
         }
+    }
+
+    public interface OnItemClickListener {
+
+        void onItemClick(RecyclerView.ViewHolder holder);
+
+
     }
 }

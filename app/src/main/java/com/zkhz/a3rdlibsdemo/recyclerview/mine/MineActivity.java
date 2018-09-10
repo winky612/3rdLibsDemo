@@ -21,7 +21,6 @@ import butterknife.ButterKnife;
 public class MineActivity extends BaseActivity {
     @BindView(R.id.rv_setting)
     RecyclerView rvSetting;
-
     private List<MineData> datas;
     private MineData headData;
     private MineAdapter adapter;
@@ -30,11 +29,12 @@ public class MineActivity extends BaseActivity {
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_setting;
-
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
         initData();
@@ -69,24 +69,18 @@ public class MineActivity extends BaseActivity {
 
 
         rvSetting.setAdapter(adapter);
-
-
-
     }
-
 
     @Override
     protected void initData() {
         super.initData();
 
-        headData = new MineData(R.drawable.ic_launcher_background,"hahahahah",R.mipmap.icon_male,"鸥乐号:123455",16);
+        headData = new MineData(R.drawable.ic_launcher_background, "hahahahah", R.mipmap.icon_male, "鸥乐号:123455", 16);
 
         datas = new ArrayList<>();
-        datas.add(new MineData(R.drawable.ic_launcher_background,"hahahahah",R.mipmap.icon_male,"鸥乐号:123455",16));
-        datas.add(new MineData(R.drawable.ic_launcher_background,R.string.my_wallet));
-        datas.add(new MineData(R.drawable.ic_launcher_background,R.string.my_focus));
-        datas.add(new MineData(R.drawable.ic_launcher_background,R.string.my_msg));
-
-
+        datas.add(new MineData(R.drawable.ic_launcher_background, "hahahahah", R.mipmap.icon_male, "鸥乐号:123455", 16));
+        datas.add(new MineData(R.drawable.ic_launcher_background, R.string.my_wallet));
+        datas.add(new MineData(R.drawable.ic_launcher_background, R.string.my_focus));
+        datas.add(new MineData(R.drawable.ic_launcher_background, R.string.my_msg));
     }
 }

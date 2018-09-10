@@ -36,6 +36,32 @@ public class AnimalRVActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AnimalRVActivity.this, LinearLayoutManager.HORIZONTAL, false);
         rv.setLayoutManager(linearLayoutManager);
         adapter=new AnimalRVAdapter();
+
+        rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (mShouldScroll && RecyclerView.SCROLL_STATE_IDLE == newState) {
+                    mShouldScroll = false;
+                    smoothMoveToPosition(rv, mToPosition);
+                }
+            }
+        });
+
+        adapter.setOnItemClickListener(new AnimalRVAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerView.ViewHolder holder) {
+
+                int pos = holder.getLayoutPosition();
+                if (pos != -1) {
+                    smoothMoveToPosition(rv, pos);
+                } else {
+                    smoothMoveToPosition(rv, pos + 1);
+                }
+            }
+        });
+
+
         adapter.setList(list);
         rv.setAdapter(adapter);
 
@@ -50,4 +76,39 @@ public class AnimalRVActivity extends AppCompatActivity {
             list.add(new Animal("虫虫"));
         }
     }
+
+
+    //目标项是否在最后一个可见项之后
+    private boolean mShouldScroll;
+    //记录目标项位置
+    private int mToPosition;
+
+    /**
+     * 滑动到指定位置
+     */
+    private void smoothMoveToPosition(RecyclerView mRecyclerView, final int position) {
+        // 第一个可见位置
+        int firstItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(0));
+        // 最后一个可见位置
+        int lastItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(mRecyclerView.getChildCount() - 1));
+        if (position < firstItem) {
+            // 第一种可能:跳转位置在第一个可见位置之前
+            mRecyclerView.smoothScrollToPosition(position);
+        } else if (position <= lastItem) {
+            // 第二种可能:跳转位置在第一个可见位置之后
+            int movePosition = position - firstItem;
+            if (movePosition >= 0 && movePosition < mRecyclerView.getChildCount()) {
+                int top = mRecyclerView.getChildAt(movePosition).getTop();
+                mRecyclerView.smoothScrollBy(0, top);
+            }
+        } else {
+            // 第三种可能:跳转位置在最后可见项之后
+            mRecyclerView.smoothScrollToPosition(position);
+            mToPosition = position;
+            mShouldScroll = true;
+        }
+    }
+
+
+
 }
